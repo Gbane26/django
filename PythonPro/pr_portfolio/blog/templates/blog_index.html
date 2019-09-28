@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="col-md-8 offset-md-2" style="background-color: #def9f1">
+    <h3 style="color: teal; text-align: center">NaN Blog</h3>
+    <hr>
+    {% for post in posts %}
+    <p><a href="{% url 'blog_detail' post.pk%}" style="color: teal">{{ post.title }}</a></p>
+    <small>
+        {{ post.date_add.date }} |&nbsp;
+        Categories:&nbsp;
+        {% for category in post.categories.all %}
+        <a style="color: teal" href="{% url 'blog_category' category.name %}">
+            {{ category.name }}
+        </a>&nbsp;
+        {% endfor %}
+    </small>
+    <p>{{ post.body | slice:":400" }}...</p>
+    {% endfor %}
+</div>
+{% endblock %}

@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<h1 style="text-align: center; margin: 10px;">Service NaN</h1>
+<div class="row">
+    {% for projects in project %} 
+        <div class="col-md-4 md">
+            <div class="card mb-2">
+                <img class="card-img-top" src=" {{ projects.image.url }} ">
+                <div class="card-body">
+                    <h5 class="card-title">{{ projects.title }}</h5>
+                    <p class="card-text">{{projects.description}}</p>
+                    <a href="{% url 'project_detail' projects.id  %}"
+                        class="btn btn-primary">
+                         Read More
+                    </a>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+</div>
+
+{% endblock content %}
