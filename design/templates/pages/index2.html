@@ -1,0 +1,113 @@
+{% extends 'bases/base.html' %}
+{% block content %}
+
+<div id="app">
+
+    <section  v-if="primary" class="fdb-block" style="background-image: url(/static/img/coffee-1283672__480.jpg); height: 100vh;">
+        <div class="container">
+            <div class="row">
+                <button v-on:click="affinfo" class="btn btn-primary" type="button">Log In</button>
+            </div>
+            <div class="row justify-content-center">
+            
+                <div class="col-12 col-md-6 col-lg-7 col-md-3 text-center">
+                    <div class="fdb-box fdb-touch">
+                        <div class="row">
+                            <div class="col">
+                                <h1>Register</h1>
+                                <div  class="alert alert-success" role="alert">
+                                    A simple success alert—check it out!
+                                </div>
+
+                                <div v-if="!success" class="alert alert-danger" role="alert">
+                                    A simple danger alert—check it out!
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col mt-4">
+                            <input v-model="name" type="text" class="form-control" placeholder="Name">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col mt-4">
+                            <input v-model="username" type="text" class="form-control" placeholder="LastName">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col mt-4">
+                            <input v-model="password" type="password" class="form-control" placeholder="Password">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col mt-4">
+                            <input v-model="repassword" type="password" class="form-control" placeholder="RePassword">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col mt-4">
+                            <input id="phone" v-model="phone" type="phone" class="form-control" placeholder="Phone">
+                            </div>
+                        </div>
+                        <div class="row mt-4">
+                            <div class="col">
+                            <input v-model="email" type="Email" class="form-control mb-1" placeholder="Email">
+                            <p class="text-right"><a href="https://www.froala.com">Already have an account?</a></p>
+                            </div>
+                        </div>
+                        <div class="row mt-4">
+                            <div class="col">
+                                <button v-on:click="sendregister" class="btn btn-primary" type="button">Submit</button>
+                                <div v-if="isregister" class="lds-hourglass"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
+    <section v-if="secondary" class="fdb-block" style="background-image: url(/static/img/undraw_zoom_in_1txs.svg); height: 100vh;">
+        <div class="container" >
+            <div class="row">
+                <button v-on:click="affwarning" class="btn btn-primary" type="button">Register</button>
+            </div>
+            <div class="row justify-content-center">
+            
+                <div class="col-12 col-md-8 col-lg-7 col-md-5 text-center">
+                    <div class="fdb-box fdb-touch">
+                        <div class="row">
+                            <div class="col">
+                                <h1>Log In</h1>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col mt-4">
+                            <input type="text" class="form-control" placeholder="Name">
+                            </div>
+                        </div>
+                        
+                        
+                        <div class="row mt-4">
+                            <div class="col">
+                            <input type="password" class="form-control mb-1" placeholder="Password">
+                            <p class="text-right"><a href="https://www.froala.com">Already have an account?</a></p>
+                            </div>
+                        </div>
+                        <div class="row mt-4">
+                            <div class="col">
+                                <button v-on:click="sendregister" class="btn btn-primary" type="button">Submit</button>
+                                <div class="lds-hourglass"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
+</div>
+{% endblock content %}
+
